@@ -1,6 +1,7 @@
 import banner from "../assets/banner.png"
 import Banner from "../shared/Banner";
 
+
 const Home = () => {
   return (
     <div className="md:px-14 p-4 pt-28 max-w-screen-2xl" id="home">

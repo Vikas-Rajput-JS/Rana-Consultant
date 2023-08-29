@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { FcInfo } from "react-icons/fc";
-
+// motion
+import { motion } from "framer-motion";
+// variants
+import { fadeIn } from "../variants";
 
 const Pricing = () => {
     const [isYearly, setIsYearly] = useState(false);
@@ -12,7 +15,8 @@ const Pricing = () => {
   ];
 
     return (
-        <div className="py-10 md:px-14 p-4 max-w-screen-2xl mx-auto" id="pricing">
+        <div  
+        className="py-10 md:px-14 p-4 max-w-screen-2xl mx-auto" id="pricing">
       <div className="text-center">
         <h2 className="md:text-5xl text-2xl font-extrabold text-gray-900 mb-2">Here are all our plans</h2>
         <p className="text-tertiary md:w-1/3 mx-auto">A simple paragraph is comprised of three major components. The which is often a declarative sentence.</p>
@@ -33,7 +37,13 @@ const Pricing = () => {
           />
         </div>
       </div>
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-10 mt-20 md:w-11/12 mx-auto">
+      <motion.div
+      variants={fadeIn("up", 0.3)}
+      initial="hidden"
+      whileInView={"show"}
+      viewport={{ once: false, amount: 0.2 }}
+
+      className="grid sm:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-10 mt-20 md:w-11/12 mx-auto">
         {packages.map((pkg, index) => (
           <div key={index} className="border py-10 md:px-6 px-4 rounded-lg shadow-3xl">
             <h3 className="text-3xl  font-bold text-center text-[#010851]">{pkg.name}</h3>
@@ -72,7 +82,7 @@ const Pricing = () => {
             </div>
           </div>
         ))}
-      </div>
+      </motion.div>
         </div>
     );
 };
