@@ -12,7 +12,7 @@ const Pricing = () => {
   ];
 
     return (
-        <div className="py-10 md:px-14 p-4 max-w-screen-2xl mx-auto">
+        <div className="py-10 md:px-14 p-4 max-w-screen-2xl mx-auto" id="pricing">
       <div className="text-center">
         <h2 className="md:text-5xl text-2xl font-extrabold text-gray-900 mb-2">Here are all our plans</h2>
         <p className="text-tertiary md:w-1/3 mx-auto">A simple paragraph is comprised of three major components. The which is often a declarative sentence.</p>
