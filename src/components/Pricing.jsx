@@ -6,85 +6,357 @@ import { motion } from "framer-motion";
 import { fadeIn } from "../variants";
 
 const Pricing = () => {
-    const [isYearly, setIsYearly] = useState(false);
+  const [isYearly, setIsYearly] = useState(false);
 
   const packages = [
-    { name: 'Start', monthlyPrice: 19, yearlyPrice: 199, description: "A common form of Lorem ipsum reads: Lorem ipsum dolor sit amet, consectetur adipiscing elit.", green: "/src/assets/green-dot.png" },
-    { name: 'Advanced', monthlyPrice: 39, yearlyPrice: 399, description: "A common form of Lorem ipsum reads: Lorem ipsum dolor sit amet, consectetur adipiscing elit.", green: "/src/assets/green-dot.png" },
-    { name: 'Premium', monthlyPrice: 59, yearlyPrice: 599, description: "A common form of Lorem ipsum reads: Lorem ipsum dolor sit amet, consectetur adipiscing elit.", green: "/src/assets/green-dot.png" },
+    {
+      name: "Start",
+      monthlyPrice: 19,
+      yearlyPrice: 199,
+      description:
+        "A common form of Lorem ipsum reads: Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      green: "/src/assets/green-dot.png",
+    },
+    {
+      name: "Advanced",
+      monthlyPrice: 39,
+      yearlyPrice: 399,
+      description:
+        "A common form of Lorem ipsum reads: Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      green: "/src/assets/green-dot.png",
+    },
+    {
+      name: "Premium",
+      monthlyPrice: 59,
+      yearlyPrice: 599,
+      description:
+        "A common form of Lorem ipsum reads: Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      green: "/src/assets/green-dot.png",
+    },
   ];
 
-    return (
-        <div  
-        className="py-10 md:px-14 p-4 max-w-screen-2xl mx-auto" id="pricing">
-      <div className="text-center">
-        <h2 className="md:text-5xl text-2xl font-extrabold text-gray-900 mb-2">Here are all our plans</h2>
-        <p className="text-tertiary md:w-1/3 mx-auto">A simple paragraph is comprised of three major components. The which is often a declarative sentence.</p>
-        <div className="mt-16">
-          <label htmlFor="toggle" className="inline-flex items-center cursor-pointer">
-            <span className="mr-8 text-2xl font-semibold">Monthly</span>
-            <div className="w-14 h-6 transition duration-200 bg-gray-300 ease-in-out rounded-full">
-                <div className={`w-6 h-6 transition duration-200 ease-in-out rounded-full ${isYearly ? 'bg-primary ml-8' : 'bg-gray-500'}`}></div>
-            </div>
-            <span className="ml-8 text-2xl font-semibold">Yearly</span>
-          </label>
-          <input
-            type="checkbox"
-            id="toggle"
-            className="hidden"
-            checked={isYearly}
-            onChange={() => setIsYearly(!isYearly)}
-          />
+  return (
+    <section className="relative py-20 overflow-hidden bg-orange-50">
+      <div className="container px-4 mx-auto">
+        <div className="max-w-3xl mx-auto mb-18 text-center">
+          <span className="inline-block py-1 px-3 mb-4 text-xs font-semibold bg-[#ff460c]  text-orange-100 rounded-full">
+            OUR PLANS
+          </span>
+          <h1 className="font-heading text-5xl xs:text-6xl md:text-7xl font-bold text-gray-900">
+            <span>Get your</span>
+            <span className="font-serif italic">ticket</span>
+            <span>here</span>
+          </h1>
         </div>
-      </div>
-      <motion.div
-      variants={fadeIn("up", 0.3)}
-      initial="hidden"
-      whileInView={"show"}
-      viewport={{ once: false, amount: 0.2 }}
-
-      className="grid sm:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-10 mt-20 md:w-11/12 mx-auto">
-        {packages.map((pkg, index) => (
-          <div key={index} className="border py-10 md:px-6 px-4 rounded-lg shadow-3xl">
-            <h3 className="text-3xl  font-bold text-center text-[#010851]">{pkg.name}</h3>
-            <p className="text-tertiary text-center my-6">{pkg.description}</p>
-            <p className="mt-5 text-center text-secondary text-4xl font-bold">
-              {isYearly ? `$${pkg.yearlyPrice}` : `$${pkg.monthlyPrice}`}<span className="text-base text-tertiary font-medium">/{isYearly ? 'year' : 'month'}</span>
-            </p>
-            <ul className="mt-4 space-y-2 px-4">
-              <li className="flex items-center">
-                <FcInfo className="mr-2 text-xl"/>
-                Videos of Lessons
-              </li>
-              <li className="flex items-center">
-                <FcInfo className="mr-2 text-xl"/>
-                Homework check
-              </li>
-              <li className="flex items-center">
-              <FcInfo className="mr-2 text-xl"/>
-                Additional practical task
-              </li>
-              <li className="flex items-center">
-              <FcInfo className="mr-2 text-xl"/>
-                Monthly conferences 
-              </li>
-              <li className="flex items-center">
-              <FcInfo className="mr-2 text-xl"/>
-                Personal advice from teachers
-              </li>
-            </ul>
-
-            {/* button */}
-            <div className="w-full mx-auto flex items-center justify-center mt-5">
-            <button className="mt-6 px-10 text-secondary py-2 border border-secondary hover:bg-secondary hover:text-white font-semibold py-2 rounded-lg">
-              Get Started
-            </button>
+        <div className="max-w-7xl mx-auto mt-4">
+          <div className="flex flex-wrap -mx-4">
+            <div className="w-full lg:w-1/3 px-4 mb-10 lg:mb-0">
+              <div className="relative max-w-sm lg:max-w-none mx-auto bg-white rounded-3xl">
+                <div className="pt-2 px-2">
+                  <div className="relative pt-12 pb-10 px-6 h-52 rounded-3xl bg-purple-50 overflow-hidden">
+                    <img
+                      className="absolute bottom-0 left-0 w-full"
+                      src="https://shuffle.dev/saturn-assets/images/pricing/wave-bg1.svg"
+                      alt=""
+                    />
+                    <div className="relative text-center">
+                      <span className="inline-block py-1.5 px-5 mb-6 font-semibold text-pink-500 bg-pink-200 rounded-full">
+                        Beginner
+                      </span>
+                      <span className="block text-5xl font-bold">$99.00</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="h-8 mb-7 relative">
+                  <div className="absolute left-0 top-1/2 transform -translate-y-1/2 w-full">
+                    <div className="w-full border-b-8 border-dotted border-orange-50" />
+                  </div>
+                  <div className="absolute top-0 left-0 transform -translate-x-1/2 w-8 h-8 bg-orange-50 rounded-full" />
+                  <div className="absolute top-0 right-0 transform translate-x-1/2 w-8 h-8 bg-orange-50 rounded-full" />
+                </div>
+                <div className="px-6 pb-12">
+                  <ul className="mb-12">
+                    <li className="flex mb-5 items-center">
+                      <img
+                        src="https://shuffle.dev/saturn-assets/images/pricing/green-check.svg"
+                        alt=""
+                      />
+                      <span className="ml-3 text-gray-900">
+                        1 days access to the conference
+                      </span>
+                    </li>
+                    <li className="flex mb-5 items-center">
+                      <img
+                        src="https://shuffle.dev/saturn-assets/images/pricing/green-check.svg"
+                        alt=""
+                      />
+                      <span className="ml-3 text-gray-900">
+                        Music, launch and snack
+                      </span>
+                    </li>
+                    <li className="flex mb-5 items-center">
+                      <img
+                        src="https://shuffle.dev/https://shuffle.dev/saturn-assets/images/pricing/green-check.svg"
+                        alt=""
+                      />
+                      <span className="ml-3 text-gray-900">
+                        Meet Event Speaker
+                      </span>
+                    </li>
+                    <li className="flex mb-5 items-center">
+                      <img
+                        src="https://shuffle.dev/saturn-assets/images/pricing/red-check.svg"
+                        alt=""
+                      />
+                      <span className="ml-3 text-gray-400">
+                        Live video online access
+                      </span>
+                    </li>
+                    <li className="flex mb-5 items-center">
+                      <img
+                        src="https://shuffle.dev/saturn-assets/images/pricing/red-check.svg"
+                        alt=""
+                      />
+                      <span className="ml-3 text-gray-400">
+                        Get a certificate
+                      </span>
+                    </li>
+                  </ul>
+                  <div className="text-center">
+                    <a
+                      className="relative group inline-block py-4 px-5 items-center text-orange-50 font-semibold bg-[#ff460c]  rounded-full overflow-hidden"
+                      href="#"
+                    >
+                      <div className="absolute top-0 right-full w-full h-full bg-gray-900 transform group-hover:translate-x-full group-hover:scale-102 transition duration-500" />
+                      <div className="relative flex items-center justify-center">
+                        <span className="mr-2">Choose Plan</span>
+                        <span>
+                          <svg
+                            width={16}
+                            height={12}
+                            viewBox="0 0 16 12"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M14.71 1.20998C14.617 1.11625 14.5064 1.04186 14.3846 0.991091C14.2627 0.940323 14.132 0.914185 14 0.914185C13.868 0.914185 13.7373 0.940323 13.6154 0.991091C13.4936 1.04186 13.383 1.11625 13.29 1.20998L5.84001 8.66998L2.71001 5.52998C2.61349 5.43674 2.49955 5.36343 2.37469 5.31423C2.24984 5.26502 2.11651 5.24089 1.98233 5.24321C1.84815 5.24553 1.71574 5.27426 1.59266 5.32776C1.46959 5.38125 1.35825 5.45846 1.26501 5.55498C1.17177 5.6515 1.09846 5.76545 1.04925 5.8903C1.00005 6.01516 0.97592 6.14848 0.978241 6.28266C0.980563 6.41684 1.00929 6.54925 1.06278 6.67233C1.11628 6.79541 1.19349 6.90674 1.29001 6.99998L5.13001 10.84C5.22297 10.9337 5.33358 11.0081 5.45543 11.0589C5.57729 11.1096 5.708 11.1358 5.84001 11.1358C5.97202 11.1358 6.10273 11.1096 6.22459 11.0589C6.34645 11.0081 6.45705 10.9337 6.55001 10.84L14.71 2.67998C14.8115 2.58634 14.8925 2.47269 14.9479 2.34619C15.0033 2.21969 15.0319 2.08308 15.0319 1.94498C15.0319 1.80688 15.0033 1.67028 14.9479 1.54378C14.8925 1.41728 14.8115 1.30363 14.71 1.20998Z"
+                              fill="currentColor"
+                            />
+                          </svg>
+                        </span>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="w-full lg:w-1/3 px-4 mb-10 lg:mb-0">
+              <div className="relative max-w-sm lg:max-w-none mx-auto bg-orange-700 rounded-3xl">
+                <div className="pt-2 px-2">
+                  <div className="relative pt-12 pb-10 px-6 h-52 rounded-3xl bg-[#ff460c]  overflow-hidden">
+                    <img
+                      className="absolute bottom-0 left-0 w-full"
+                      src="https://shuffle.dev/saturn-assets/images/pricing/wave-bg2.svg"
+                      alt=""
+                    />
+                    <div className="relative text-center">
+                      <span className="inline-block py-1.5 px-5 mb-6 font-semibold text-white bg-orange-700 rounded-full">
+                        Premium
+                      </span>
+                      <span className="block text-5xl font-bold text-white">
+                        $149.00
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div className="h-8 mb-7 relative">
+                  <div className="absolute left-0 top-1/2 transform -translate-y-1/2 w-full">
+                    <div className="w-full border-b-8 border-dotted border-orange-50" />
+                  </div>
+                  <div className="absolute top-0 left-0 transform -translate-x-1/2 w-8 h-8 bg-orange-50 rounded-full" />
+                  <div className="absolute top-0 right-0 transform translate-x-1/2 w-8 h-8 bg-orange-50 rounded-full" />
+                </div>
+                <div className="px-6 pb-12">
+                  <ul className="mb-12">
+                    <li className="flex mb-5 items-center">
+                      <img
+                        src="https://shuffle.dev/saturn-assets/images/pricing/orange-check.svg"
+                        alt=""
+                      />
+                      <span className="ml-3 text-gray-50">
+                        1 days access to the conference
+                      </span>
+                    </li>
+                    <li className="flex mb-5 items-center">
+                      <img
+                        src="https://shuffle.dev/saturn-assets/images/pricing/orange-check.svg"
+                        alt=""
+                      />
+                      <span className="ml-3 text-gray-50">
+                        Music, launch and snack
+                      </span>
+                    </li>
+                    <li className="flex mb-5 items-center">
+                      <img
+                        src="https://shuffle.dev/saturn-assets/images/pricing/orange-check.svg"
+                        alt=""
+                      />
+                      <span className="ml-3 text-gray-50">
+                        Meet Event Speaker
+                      </span>
+                    </li>
+                    <li className="flex mb-5 items-center">
+                      <img
+                        src="https://shuffle.dev/saturn-assets/images/pricing/orange-check.svg"
+                        alt=""
+                      />
+                      <span className="ml-3 text-gray-50">
+                        Live video online access
+                      </span>
+                    </li>
+                    <li className="flex mb-5 items-center">
+                      <img
+                        src="https://shuffle.dev/saturn-assets/images/pricing/orange-disable.svg"
+                        alt=""
+                      />
+                      <span className="ml-3 text-orange-400">
+                        Get a certificate
+                      </span>
+                    </li>
+                  </ul>
+                  <div className="text-center">
+                    <a
+                      className="relative group inline-block py-4 px-5 items-center text-orange-900 hover:text-orange-50 font-semibold bg-white rounded-full overflow-hidden transition duration-300"
+                      href="#"
+                    >
+                      <div className="absolute top-0 right-full w-full h-full bg-gray-900 transform group-hover:translate-x-full group-hover:scale-102 transition duration-500" />
+                      <div className="relative flex items-center justify-center">
+                        <span className="mr-2">Choose Plan</span>
+                        <span>
+                          <svg
+                            width={16}
+                            height={12}
+                            viewBox="0 0 16 12"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M14.71 1.20998C14.617 1.11625 14.5064 1.04186 14.3846 0.991091C14.2627 0.940323 14.132 0.914185 14 0.914185C13.868 0.914185 13.7373 0.940323 13.6154 0.991091C13.4936 1.04186 13.383 1.11625 13.29 1.20998L5.84001 8.66998L2.71001 5.52998C2.61349 5.43674 2.49955 5.36343 2.37469 5.31423C2.24984 5.26502 2.11651 5.24089 1.98233 5.24321C1.84815 5.24553 1.71574 5.27426 1.59266 5.32776C1.46959 5.38125 1.35825 5.45846 1.26501 5.55498C1.17177 5.6515 1.09846 5.76545 1.04925 5.8903C1.00005 6.01516 0.97592 6.14848 0.978241 6.28266C0.980563 6.41684 1.00929 6.54925 1.06278 6.67233C1.11628 6.79541 1.19349 6.90674 1.29001 6.99998L5.13001 10.84C5.22297 10.9337 5.33358 11.0081 5.45543 11.0589C5.57729 11.1096 5.708 11.1358 5.84001 11.1358C5.97202 11.1358 6.10273 11.1096 6.22459 11.0589C6.34645 11.0081 6.45705 10.9337 6.55001 10.84L14.71 2.67998C14.8115 2.58634 14.8925 2.47269 14.9479 2.34619C15.0033 2.21969 15.0319 2.08308 15.0319 1.94498C15.0319 1.80688 15.0033 1.67028 14.9479 1.54378C14.8925 1.41728 14.8115 1.30363 14.71 1.20998Z"
+                              fill="currentColor"
+                            />
+                          </svg>
+                        </span>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="w-full lg:w-1/3 px-4">
+              <div className="relative max-w-sm lg:max-w-none mx-auto bg-white rounded-3xl">
+                <div className="pt-2 px-2">
+                  <div className="relative pt-12 pb-10 px-6 h-52 rounded-3xl bg-purple-50 overflow-hidden">
+                    <img
+                      className="absolute bottom-0 left-0 w-full"
+                      src="https://shuffle.dev/saturn-assets/images/pricing/wave-bg1.svg"
+                      alt=""
+                    />
+                    <div className="relative text-center">
+                      <span className="inline-block py-1.5 px-5 mb-6 font-semibold text-indigo-500 bg-indigo-100 rounded-full">
+                        Advanced
+                      </span>
+                      <span className="block text-5xl font-bold">$199.00</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="h-8 mb-7 relative">
+                  <div className="absolute left-0 top-1/2 transform -translate-y-1/2 w-full">
+                    <div className="w-full border-b-8 border-dotted border-orange-50" />
+                  </div>
+                  <div className="absolute top-0 left-0 transform -translate-x-1/2 w-8 h-8 bg-orange-50 rounded-full" />
+                  <div className="absolute top-0 right-0 transform translate-x-1/2 w-8 h-8 bg-orange-50 rounded-full" />
+                </div>
+                <div className="px-6 pb-12">
+                  <ul className="mb-12">
+                    <li className="flex mb-5 items-center">
+                      <img
+                        src="https://shuffle.dev/saturn-assets/images/pricing/green-check.svg"
+                        alt=""
+                      />
+                      <span className="ml-3 text-gray-900">
+                        1 days access to the conference
+                      </span>
+                    </li>
+                    <li className="flex mb-5 items-center">
+                      <img
+                        src="https://shuffle.dev/saturn-assets/images/pricing/green-check.svg"
+                        alt=""
+                      />
+                      <span className="ml-3 text-gray-900">
+                        Music, launch and snack
+                      </span>
+                    </li>
+                    <li className="flex mb-5 items-center">
+                      <img
+                        src="https://shuffle.dev/saturn-assets/images/pricing/green-check.svg"
+                        alt=""
+                      />
+                      <span className="ml-3 text-gray-900">
+                        Meet Event Speaker
+                      </span>
+                    </li>
+                    <li className="flex mb-5 items-center">
+                      <img
+                        src="https://shuffle.dev/saturn-assets/images/pricing/green-check.svg"
+                        alt=""
+                      />
+                      <span className="ml-3 text-gray-900">
+                        Live video online access
+                      </span>
+                    </li>
+                    <li className="flex mb-5 items-center">
+                      <img
+                        src="https://shuffle.dev/saturn-assets/images/pricing/green-check.svg"
+                        alt=""
+                      />
+                      <span className="ml-3 text-gray-900">
+                        Get a certificate
+                      </span>
+                    </li>
+                  </ul>
+                  <div className="text-center">
+                    <a
+                      className="relative group inline-block py-4 px-5 items-center text-orange-50 font-semibold bg-[#ff460c]  rounded-full overflow-hidden"
+                      href="#"
+                    >
+                      <div className="absolute top-0 right-full w-full h-full bg-gray-900 transform group-hover:translate-x-full group-hover:scale-102 transition duration-500" />
+                      <div className="relative flex items-center justify-center">
+                        <span className="mr-2">Choose Plan</span>
+                        <span>
+                          <svg
+                            width={16}
+                            height={12}
+                            viewBox="0 0 16 12"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M14.71 1.20998C14.617 1.11625 14.5064 1.04186 14.3846 0.991091C14.2627 0.940323 14.132 0.914185 14 0.914185C13.868 0.914185 13.7373 0.940323 13.6154 0.991091C13.4936 1.04186 13.383 1.11625 13.29 1.20998L5.84001 8.66998L2.71001 5.52998C2.61349 5.43674 2.49955 5.36343 2.37469 5.31423C2.24984 5.26502 2.11651 5.24089 1.98233 5.24321C1.84815 5.24553 1.71574 5.27426 1.59266 5.32776C1.46959 5.38125 1.35825 5.45846 1.26501 5.55498C1.17177 5.6515 1.09846 5.76545 1.04925 5.8903C1.00005 6.01516 0.97592 6.14848 0.978241 6.28266C0.980563 6.41684 1.00929 6.54925 1.06278 6.67233C1.11628 6.79541 1.19349 6.90674 1.29001 6.99998L5.13001 10.84C5.22297 10.9337 5.33358 11.0081 5.45543 11.0589C5.57729 11.1096 5.708 11.1358 5.84001 11.1358C5.97202 11.1358 6.10273 11.1096 6.22459 11.0589C6.34645 11.0081 6.45705 10.9337 6.55001 10.84L14.71 2.67998C14.8115 2.58634 14.8925 2.47269 14.9479 2.34619C15.0033 2.21969 15.0319 2.08308 15.0319 1.94498C15.0319 1.80688 15.0033 1.67028 14.9479 1.54378C14.8925 1.41728 14.8115 1.30363 14.71 1.20998Z"
+                              fill="currentColor"
+                            />
+                          </svg>
+                        </span>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        ))}
-      </motion.div>
         </div>
-    );
+      </div>
+    </section>
+  );
 };
 
 export default Pricing;

@@ -8,90 +8,185 @@ import linkdin from '../assets/linkedIn.png'
 
 const Footer = () => {
   return (
-    <div className="bg-primary md:px-14 p-4 max-w-screen-2xl mx-auto">
-      <div className="my-12 text-white flex flex-col md:flex-row gap-10">
-        <div className="md:w-1/2 space-y-8">
-          <a
-            href=""
-            className="text-2xl font-semibold flex items-center space-x-3 mt-5"
-          >
-            <img src={logo} alt="" className="w-10 inline-block items-center" />
-            <span className="text-white">XYZ</span>
-          </a>
-          <p className="md:w-1/2">
-            A simple paragraph is comprised of three major components. The first
-            sentence, which is often a declarative sentence.
-          </p>
-          <div>
-            <input
-              type="email"
-              placeholder="Your email"
-              className="bg-[#9a7af159] py-2 px-4 rounded-md"
-            />
-            <input
-              type="submit"
-              value="Subscribe"
-              className="py-2 px-4 rounded-md bg-secondary -ml-2"
-            />
+    <section className="py-20">
+    <div className="container px-4 mx-auto">
+      <div className="max-w-7xl mx-auto">
+        <div className="flex flex-wrap -mx-4 pb-28">
+          <div className="w-full lg:w-1/2 px-4 mb-12 lg:mb-0">
+            <div className="max-w-md mx-auto lg:mx-0">
+              <h3 className="max-w-sm font-heading text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+                <span>Ready to get</span>
+                <span className="font-serif italic">started</span>
+                <span>?</span>
+              </h3>
+              <p className="max-w-sm text-gray-500 mb-16">
+                If there are questions you want to ask, we will answer all your
+                question
+              </p>
+              <div className="sm:flex mb-2 items-center">
+                <input
+                  className="w-full mb-3 sm:mb-0 sm:mr-4 pb-4 bg-transparent border-b border-gray-200 text-sm text-gray-900 placeholder-gray-400 outline-none"
+                  type="email"
+                  placeholder="Enter your email"
+                  fdprocessedid="rfyq3i"
+                />
+                <button
+                  className="relative group inline-block flex-shrink-0 w-full sm:w-auto py-3 px-5 text-sm font-semibold text-orange-50 bg-[#ff460c] rounded-full overflow-hidden"
+                  type="submit"
+                  fdprocessedid="0m1gia"
+                >
+                  <div className="absolute top-0 right-full w-full h-full bg-gray-900 transform group-hover:translate-x-full group-hover:scale-102 transition duration-500" />
+                  <span className="relative">Subscribe</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div className="w-full lg:w-1/2 px-4">
+            <div className="max-w-md mx-auto lg:mr-0">
+              <p className="text-2xl font-semibold text-gray-900 mb-16">
+                Maybe your question is have been answered, check this out.
+              </p>
+              <div className="pb-5 mb-5 border-b border-gray-200">
+                <a className="group flex items-center justify-between" href="#">
+                  <span className="text-lg text-gray-500 group-hover:text-orange-900">
+                    What is Coca Soft
+                  </span>
+                  <span>
+                    <svg
+                      width={24}
+                      height={24}
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M14 5L21 12M21 12L14 19M21 12L3 12"
+                        stroke="#FF460C"
+                        strokeWidth={2}
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </span>
+                </a>
+              </div>
+              <div className="pb-5 mb-5 border-b border-gray-200">
+                <a className="group flex items-center justify-between" href="#">
+                  <span className="text-lg text-gray-500 group-hover:text-orange-900">
+                    How can I get service from Coca Soft
+                  </span>
+                  <span>
+                    <svg
+                      width={24}
+                      height={24}
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M14 5L21 12M21 12L14 19M21 12L3 12"
+                        stroke="#FF460C"
+                        strokeWidth={2}
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </span>
+                </a>
+              </div>
+              <div>
+                <a className="group flex items-center justify-between" href="#">
+                  <span className="text-lg text-gray-500 group-hover:text-orange-900">
+                    What kind of service will I get
+                  </span>
+                  <span>
+                    <svg
+                      width={24}
+                      height={24}
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M14 5L21 12M21 12L14 19M21 12L3 12"
+                        stroke="#FF460C"
+                        strokeWidth={2}
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </span>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
-        <div className="md:w-1/2 flex flex-col md:flex-row flex-wrap justify-between gap-8 items-start">
-          <div className="space-y-4 mt-5">
-            <h4 className="text-xl">Platform</h4>
-            <ul className="space-y-3">
-              <a href="/" className="block hover:text-gray-300">
-                Overview
+        <div className="pt-10 border-t border-gray-200">
+          <div className="lg:flex items-center">
+            <div className="flex mb-6 lg:mb-0 lg:mr-18 items-center">
+              <a
+                className="inline-block mr-5 hover:bg-orange-50 rounded-md p-1"
+                href="#"
+              >
+                <img
+                  src="saturn-assets/images/footers/icon-facebook.svg"
+                  alt=""
+                />
               </a>
-              <a href="/" className="block hover:text-gray-300">
-                Features
+              <a
+                className="inline-block mr-5 hover:bg-orange-50 rounded-md p-1"
+                href="#"
+              >
+                <img
+                  src="saturn-assets/images/footers/icon-instagram.svg"
+                  alt=""
+                />
               </a>
-              <a href="/" className="block hover:text-gray-300">
-                About
+              <a
+                className="inline-block mr-5 hover:bg-orange-50 rounded-md p-1"
+                href="#"
+              >
+                <img src="saturn-assets/images/footers/icon-youtube.svg" alt="" />
               </a>
-              <a href="/" className="block hover:text-gray-300">
-                Pricing
+              <a
+                className="inline-block hover:bg-orange-50 rounded-md p-1"
+                href="#"
+              >
+                <img
+                  src="saturn-assets/images/footers/icon-linkedin.svg"
+                  alt=""
+                />
               </a>
-            </ul>
+            </div>
+            <div className="flex mb-6 lg:mb-0 items-center">
+              <a
+                className="inline-block mr-4 sm:mr-10 text-sm font-semibold text-gray-500 hover:text-gray-600"
+                href="#"
+              >
+                Privacy Policy
+              </a>
+              <a
+                className="inline-block mr-4 sm:mr-10 text-sm font-semibold text-gray-500 hover:text-gray-600"
+                href="#"
+              >
+                Terms &amp; Conditions
+              </a>
+              <a
+                className="inline-block text-sm font-semibold text-gray-500 hover:text-gray-600"
+                href="#"
+              >
+                Support
+              </a>
+            </div>
+            <span className="inline-block ml-auto text-sm text-gray-500">
+              © All Rights Reserved
+            </span>
           </div>
-          <div className="space-y-4 mt-5">
-            <h4 className="text-xl">Help</h4>
-            <ul className="space-y-3">
-              <a href="/" className="block">
-                How does it works?
-              </a>
-              <a href="/" className="block">
-                Where to ask question?
-              </a>
-              <a href="/" className="block">
-                How to play?
-              </a>
-              <a href="/" className="block">
-                What is needed for this?
-              </a>
-            </ul>
-          </div>
-          <div className="space-y-4 mt-5">
-            <h4 className="text-xl">Contacts</h4>
-            <ul className="space-y-3">
-              <p>(012) 1234-567-890</p>
-              <p>123 xyz xyz</p>
-              <p>qwuerybaihefv, qiwu <br />- hrebcl 095467</p>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <hr className=""/>
-
-      <div className="text-white flex flex-col sm:flex-row gap-8 sm:items-center justify-between my-8">
-        <p>@ XYZ 20XX --- 20XX. All rights reserved.</p>
-        <div className="flex items-center space-x-5">
-            <img src={fb} alt="" className="w-8"/>
-            <img src={insta} alt="" className="w-8"/>
-            <img src={twiteer} alt="" className="w-8"/>
-            <img src={linkdin} alt="" className="w-8"/>
         </div>
       </div>
     </div>
+  </section>
+  
   );
 };
 
