@@ -25,7 +25,7 @@ const Navbar = () => {
       <nav className="bg-white md:px-14 p-4 max-w-screen-2xl mx-auto text-primary fixed top-0 left-0 right-0 border-b">
         <div className="container mx-auto flex justify-between items-center text-lg font-medium">
           <div className="space-x-14 flex items-center">
-          <a href="" className="text-2xl font-semibold flex items-center space-x-3"><img src={logo} alt="" className="w-10 inline-block items-center"/><span>XYZ</span></a>
+          <a href="" className="text-2xl font-semibold flex items-center space-x-3"><img src={logo} alt="" className="w-10 inline-block items-center"/><span>RC</span></a>
           <ul className="md:flex space-x-12 hidden">
             
             {
