@@ -9,7 +9,7 @@ function HomePage() {
         <div className="flex flex-wrap items-center">
           <div className="w-auto mr-14">
             <a href="#">
-              <img src="https://shuffle.dev/flaro-assets/logos/flaro-logo-black.svg" alt="" />
+              {/* <img src="https://shuffle.dev/flaro-assets/logos/flaro-logo-black.svg" alt="" /> */}
             </a>
           </div>
         </div>
@@ -131,7 +131,7 @@ function HomePage() {
             <div className="w-full md:w-auto p-2.5">
               <div className="block">
                 <button
-                  className="py-4 px-6 w-full text-white font-semibold border border-indigo-700 rounded-xl focus:ring focus:ring-indigo-300 bg-indigo-600 hover:bg-indigo-700 transition ease-in-out duration-200"
+                  className="py-4 px-6 w-full text-white font-semibold border animation duration-700 hover:bg-black  rounded-xl focus:ring focus:ring-indigo-300 bg-[#ff460c]  transition ease-in-out duration-200"
                   type="button"
                 >
                   Join Free for 30 Days
