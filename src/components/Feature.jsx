@@ -21,9 +21,7 @@ const Feature = () => {
             Why we are better than others
           </h3>
           <p className="text-base text-tertiary">
-            A simple paragraph is comprised of three major components. The first
-            sentence, which is often a declarative sentence, is called the
-            “topic sentence.”
+          Our team of experienced consultants brings a diverse range of expertise and skills to provide comprehensive solutions tailored to your specific needs.
           </p>
         </motion.div>
 

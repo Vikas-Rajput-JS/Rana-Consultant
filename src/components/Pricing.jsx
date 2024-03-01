@@ -44,8 +44,8 @@ const Pricing = () => {
           </span>
           <h1 className="font-heading text-5xl xs:text-6xl md:text-7xl font-bold text-gray-900">
             <span>Get your</span>
-            <span className="font-serif italic">ticket</span>
-            <span>here</span>
+            <span className="font-serif italic ml-2">ticket</span>
+            <span className="ml-2">here</span>
           </h1>
         </div>
         <div className="max-w-7xl mx-auto mt-4">

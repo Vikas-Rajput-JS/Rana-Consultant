@@ -16,7 +16,7 @@ const Footer = () => {
             <div className="max-w-md mx-auto lg:mx-0">
               <h3 className="max-w-sm font-heading text-5xl md:text-6xl font-bold text-gray-900 mb-6">
                 <span>Ready to get</span>
-                <span className="font-serif italic">started</span>
+                <span className="font-serif italic ml-2">started</span>
                 <span>?</span>
               </h3>
               <p className="max-w-sm text-gray-500 mb-16">

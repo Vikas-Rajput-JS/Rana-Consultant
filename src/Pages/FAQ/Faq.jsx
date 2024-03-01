@@ -21,7 +21,7 @@ function Faq() {
         </span>
         <h1 className="font-heading text-5xl xs:text-6xl md:text-7xl font-bold">
           <span>You ask? We</span>
-          <span className="font-serif italic">answer</span>
+          <span className="font-serif italic ml-2">answer</span>
         </h1>
       </div>
       <div className="flex flex-wrap -mx-4">
