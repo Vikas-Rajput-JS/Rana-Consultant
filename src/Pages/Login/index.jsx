@@ -17,7 +17,7 @@ function Login() {
     ref.current.complete();
 
     if (localStorage.getItem("token")) {
-      history("/user");
+      history("/");
     }
   }, []);
 
