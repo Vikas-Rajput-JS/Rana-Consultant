@@ -72,7 +72,7 @@ function Form() {
     let file = e.target.files[0];
     let formdata = new FormData();
     formdata.append("file", file);
-    let Upload = await fetch(`${Environment.LocalURL}common/imageUpload`, {
+    let Upload = await fetch(`${Environment.API_URL}common/imageUpload`, {
       method: "POST",
       header: {
         "Content-Type":
@@ -140,7 +140,7 @@ function Form() {
                         document.getElementById("ImageUploader").click();
                       }}
                       className="w-52 h-52 rounded-full"
-                      src={`${Environment.LocalURL}${form?.image}`}
+                      src={`${Environment.API_URL}${form?.image}`}
                       alt=""
                     />
                   </div>
