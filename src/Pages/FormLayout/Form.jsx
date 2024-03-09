@@ -24,9 +24,7 @@ function Form() {
     ref.current.staticStart();
     ref.current.complete();
 
-    if (localStorage.getItem("token")) {
-      history("/user");
-    }
+
   }, []);
   const DestinationAddress = async (e) => {
     console.log(e);
@@ -108,6 +106,9 @@ function Form() {
                   <div className="flex flex-wrap justify-between -m-1.5">
                     <div className="w-full md:w-auto p-1.5">
                       <button
+                      onClick={()=>{
+                        history('/')
+                      }}
                         className="flex flex-wrap justify-center w-full px-4 py-2 font-medium text-sm text-coolGray-500 hover:text-coolGray-600 border border-coolGray-200 hover:border-coolGray-300 bg-white rounded-md shadow-button"
                         fdprocessedid="ynizbc"
                       >

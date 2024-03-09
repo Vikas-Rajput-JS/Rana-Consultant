@@ -242,7 +242,7 @@ className={`inline-block text-xl text-gray-900 cursor-pointer hover:text-orange-
                        <div className="flex items-center">
                         <div className="flex w-10 h-10 items-center justify-center bg-orange-50 rounded-full">
                           <img
-                            src="saturn-assets/images/headers/icon-email-me.svg"
+                            src="	https://shuffle.dev/saturn-assets/images/headers/icon-email-me.svg"
                             alt=""
                           />
                         </div>
@@ -268,33 +268,35 @@ className={`inline-block text-xl text-gray-900 cursor-pointer hover:text-orange-
                       <div className="pb-3 mb-3 border-b border-gray-100">
                         <a
                           className="flex mb-2 items-center py-3 px-4 text-sm text-gray-900 hover:bg-orange-50 rounded-lg"
-                          href="#"
+                          
                         >
                           <img
-                            src="saturn-assets/images/headers/icon-download.svg"
+                            src="	https://shuffle.dev/saturn-assets/images/headers/icon-download.svg"
                             alt=""
                           />
                           <span className="ml-3">Download</span>
                         </a>
                         <a
                           className="flex mb-2 items-center py-3 px-4 text-sm text-gray-900 hover:bg-orange-50 rounded-lg"
-                          href="#"
+                        
                         >
                           <img
-                            src="saturn-assets/images/headers/icon-slack.svg"
+                            src="	https://shuffle.dev/saturn-assets/images/headers/icon-slack.svg"
                             alt=""
                           />
                           <span className="ml-3">Community</span>
                         </a>
                         <a
                           className="flex mb-2 items-center py-3 px-4 text-sm text-gray-900 hover:bg-orange-50 rounded-lg"
-                          href="#"
+                          onClick={()=>{
+                          history('/edit-profile')
+                          }}
                         >
                           <img
-                            src="saturn-assets/images/headers/icon-help.svg"
+                            src="	https://shuffle.dev/saturn-assets/images/headers/icon-help.svg"
                             alt=""
                           />
-                          <span className="ml-3">Help</span>
+                          <span className="ml-3">Setting</span>
                         </a>
                       </div>
                       <div className="flex items-center pb-3 mb-3 border-b border-gray-100">

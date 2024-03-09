@@ -73,7 +73,7 @@ function App() {
         <Route path={"/services"} element={<Services />}></Route>
         <Route path={"/review"} element={<Review />}></Route>
         <Route path={"/follow-us"} element={<FollowUs />}></Route>
-        <Route path={"/user"} element={<Form />}></Route>
+        <Route path={"/edit-profile"} element={<Form />}></Route>
         <Route path={"/contact-us"} element={<ContactUs />}></Route>
         <Route path={"/payment"} element={<Payment />}></Route>
         <Route path={"/billing"} element={<Billing />}></Route>
