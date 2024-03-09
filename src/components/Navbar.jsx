@@ -7,10 +7,14 @@ import { Link } from "react-scroll";
 import { GrLanguage } from "react-icons/gr";
 import { FaXmark, FaBars } from "react-icons/fa6";
 import LoadingBar from "react-top-loading-bar";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const urlPath = window.location.pathname;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const token = localStorage.getItem('token')
   const ref = useRef(null);
+  const history = useNavigate()
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -171,32 +175,39 @@ const Navbar = () => {
                 </li>
                 <li>
                   <a
-                    className="inline-block text-xl text-gray-900 hover:text-orange-900 font-medium"
-                    href="services"
+className={`inline-block text-xl cursor-pointer text-gray-900 hover:text-orange-900 font-medium ${urlPath=='/services'?'text-orange-900':''}`}                    
+onClick={()=>{
+  history('/services')
+}}
                   >
                     Services
                   </a>
                 </li>
                 <li>
                   <a
-                    className="inline-block text-xl text-gray-900 hover:text-orange-900 font-medium"
-                    href="review"
+className={`inline-block text-xl text-gray-900 cursor-pointer hover:text-orange-900 font-medium ${urlPath=='/review'?'text-orange-900':''}`}                    onClick={()=>{
+  history('/review')
+}}
                   >
                     Reviews
                   </a>
                 </li>
                 <li>
                   <a
-                    className="inline-block text-xl text-gray-900 hover:text-orange-900 font-medium"
-                    href="about-us"
+                className={`inline-block text-xl cursor-pointer text-gray-900 hover:text-orange-900 font-medium ${urlPath=='/about-us'?'text-orange-900':''}`}
+                onClick={()=>{
+                  history('/about-us')
+                }}
                   >
                     About Us
                   </a>
                 </li>
                 <li>
                   <a
-                    className="inline-block text-xl text-gray-900 hover:text-orange-900 font-medium"
-                    href="contact-us"
+                    className={`inline-block text-xl cursor-pointer text-gray-900 hover:text-orange-900 font-medium ${urlPath=='/contact-us'?'text-orange-900':''}`}
+                    onClick={()=>{
+                      history('/contact-us')
+                    }}
                   >
                     Contact Us
                   </a>
@@ -204,7 +215,110 @@ const Navbar = () => {
               </ul>
               <div className="hidden lg:block ml-auto">
                 <div className="flex items-center">
-                  <a
+                {token ? <li className="group relative">
+                <div className="flex items-center">
+                        <div className="flex w-10 h-10 items-center justify-center bg-orange-50 rounded-full">
+                          <img
+                            src="https://i.pinimg.com/originals/93/d3/e3/93d3e31639a4d07613de9dccdc8bd5e8.png"
+                            alt=""
+                          />
+                        </div>
+                        <div className="ml-3">
+                          <span className="block text-xs text-gray-500">
+                            Vikas Rajput
+                          </span>
+                          <a
+                            className="text-sm font-semibold text-black hover:text-orange-900"
+                            href="#"
+                          >
+                            Vikas@yopmail.com
+                          </a>
+                        </div>
+                      </div>
+                  <div className="hidden group-hover:block absolute top-full left-0 min-w-max max-w-xs p-4 z-50">
+                    <div className="-mb-2 ml-8 w-4 h-4 rounded-sm bg-white border-l border-t border-gray-200 transform rotate-45" />
+                    <div className="w-full max-w-xs bg-white border border-gray-100 rounded-3xl pt-4 pb-4 px-4">
+                      <div className="pb-3 mb-3 border-b border-gray-100">
+                       <div className="flex items-center">
+                        <div className="flex w-10 h-10 items-center justify-center bg-orange-50 rounded-full">
+                          <img
+                            src="saturn-assets/images/headers/icon-email-me.svg"
+                            alt=""
+                          />
+                        </div>
+                        <div className="ml-3">
+                          <span className="block text-xs text-gray-500">
+                            Drop us a line
+                          </span>
+                          <a
+                            className="text-sm font-semibold text-black hover:text-orange-900"
+                            href="#"
+                          >
+                            hello@shuffle.dev
+                          </a>
+                        </div>
+                      </div>
+                        <a
+                          className="block py-3 px-4 text-sm text-gray-900 hover:bg-orange-50 rounded-lg"
+                          href="#"
+                        >
+                          Solutions
+                        </a>
+                      </div>
+                      <div className="pb-3 mb-3 border-b border-gray-100">
+                        <a
+                          className="flex mb-2 items-center py-3 px-4 text-sm text-gray-900 hover:bg-orange-50 rounded-lg"
+                          href="#"
+                        >
+                          <img
+                            src="saturn-assets/images/headers/icon-download.svg"
+                            alt=""
+                          />
+                          <span className="ml-3">Download</span>
+                        </a>
+                        <a
+                          className="flex mb-2 items-center py-3 px-4 text-sm text-gray-900 hover:bg-orange-50 rounded-lg"
+                          href="#"
+                        >
+                          <img
+                            src="saturn-assets/images/headers/icon-slack.svg"
+                            alt=""
+                          />
+                          <span className="ml-3">Community</span>
+                        </a>
+                        <a
+                          className="flex mb-2 items-center py-3 px-4 text-sm text-gray-900 hover:bg-orange-50 rounded-lg"
+                          href="#"
+                        >
+                          <img
+                            src="saturn-assets/images/headers/icon-help.svg"
+                            alt=""
+                          />
+                          <span className="ml-3">Help</span>
+                        </a>
+                      </div>
+                      <div className="flex items-center pb-3 mb-3 border-b border-gray-100">
+                        <a
+                        onClick={()=>{
+                          localStorage.clear()
+                        }}
+                          className="inline-block px-4 py-3 mr-6 text-sm font-semibold text-orange-900 hover:text-gray-900"
+                          href="/login"
+                        >
+                          Log Out
+                        </a>
+                        <a
+                          className="inline-block py-3 px-4 text-sm font-semibold text-orange-900 hover:text-white border border-gray-200 hover:border-orange-600 hover:bg-[#ff460c]  rounded-md transition duration-200"
+                          href="/signup"
+                        >
+                          Create an account
+                        </a>
+                      </div>
+                      
+                    </div>
+                  </div>
+                </li>:<>
+                <a
                     className="inline-block mr-9 text-xl font-semibold text-orange-900 hover:text-gray-900"
                     href="/login"
                   >
@@ -217,6 +331,7 @@ const Navbar = () => {
                     <div className="absolute top-0 right-full w-full h-full bg-[#ff460c]  transform group-hover:translate-x-full group-hover:scale-102 transition duration-500" />
                     <span className="relative">Create an account</span>
                   </a>
+                  </>}
                 </div>
               </div>
             </div>

@@ -18,7 +18,7 @@ var config = {
     headers: { 'Content-Type': 'application/json' },
 };
 var imageUrl = 'https://api.imgbb.com/1/upload?key=81e51e4b5abab8382e2f6561ba765ef8'
-var baseUrl = environment.API_URL
+var baseUrl = environment.LocalURL
 
 
 const handleError = (err, hideError) => {
@@ -33,8 +33,11 @@ const handleError = (err, hideError) => {
         if (!message) message = err.message
         if (!message) message = 'Server Error'
         if(message=='Your session is Expired.'){
-        
+        localStorage.clear()
            window.location.href = '/login'
+        }
+        if(message == "Auth Token Required."){
+            window.location.href = '/login'
         }
     }
     if (!hideError){

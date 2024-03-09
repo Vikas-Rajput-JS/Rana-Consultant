@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Navbar from '../../components/Navbar'
 import Footer from '../../components/Footer'
+import GooglePlaceAutoComplete from '../../components/GoogleAutoComplete'
+import addressModel from '../../Models/AddressModel';
 
 function ContactUs() {
+
   return (
 <>
 <Navbar/>
@@ -90,6 +93,7 @@ function ContactUs() {
                       placeholder="Type your email"
                       fdprocessedid="2fq1j9"
                     />
+                     
                   </div>
                 </div>
               </div>

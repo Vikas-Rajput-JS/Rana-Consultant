@@ -40,7 +40,7 @@ function Layout() {
       <HowWeWork />
       <About />
       <Pricing />
-      <Cookies />
+      {/* <Cookies /> */}
       <Stats />
       <Newsletter />
       <Testimonials />
