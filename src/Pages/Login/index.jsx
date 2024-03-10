@@ -11,7 +11,7 @@ function Login() {
   const [form, setForm] = useState({});
   const history = useNavigate();
   const ref = useRef(null);
-  const [eye, setEye] = useState("password");
+  const [eye, setEye] = useState(false);
   useEffect(() => {
     ref.current.staticStart();
     ref.current.complete();
@@ -26,14 +26,14 @@ function Login() {
     ref.current.staticStart();
     ApiClient.post("login", form).then((res) => {
       if (res.success) {
+        localStorage.setItem("token", res.token);
+        toast.success(res.message);
         ApiClient.get("profile").then((res) => {
           if (res.success) {
             dispatch(login_Success(res?.data));
+            history("/");
           }
         });
-        toast.success(res.message);
-        localStorage.setItem("token", res.token);
-        history("/");
       }
       ref.current.complete();
     });
@@ -157,17 +157,11 @@ function Login() {
                         >
                           Password
                         </label>
-                        <a
-                          className="inline-block text-sm font-semibold text-orange-600 hover:text-gray-900"
-                          href="#"
-                        >
-                          Forget password?
-                        </a>
                       </div>
                       <div className="relative">
                         <input
                           className="w-full py-3 px-4 text-md text-gray-900 placeholder-gray-400 border border-gray-200 focus:border-purple-500 focus:outline-purple rounded-lg"
-                          type="password"
+                          type={eye ? "text" : "password"}
                           value={form?.password}
                           onChange={(e) => {
                             setForm({ ...form, password: e.target.value });
@@ -175,17 +169,34 @@ function Login() {
                           placeholder="Enter your password"
                           fdprocessedid="j41x"
                         />
-                        <button
-                          className="absolute top-1/2 right-0 mr-3 transform -translate-y-1/2 inline-block hover:scale-110 transition duration-100"
-                          fdprocessedid="txgt8n"
-                        >
+                        {eye ? (
                           <img
+                            onClick={() => setEye(false)}
+                            className="absolute w-6 cursor-pointer top-1/2 right-0 mr-3 transform -translate-y-1/2 inline-block hover:scale-110 transition duration-100"
+                            fdprocessedid="txgt8n"
+                            src="/public/close-eye.png"
+                            alt=""
+                          />
+                        ) : (
+                          <img
+                            onClick={() => setEye(true)}
+                            className="absolute cursor-pointer top-1/2 right-0 mr-3 transform -translate-y-1/2 inline-block hover:scale-110 transition duration-100"
+                            fdprocessedid="txgt8n"
                             src="https://shuffle.dev/saturn-assets/images/sign-up/icon-eye.svg"
                             alt=""
                           />
-                        </button>
+                        )}
                       </div>
+                      <a
+                        className="inline-block cursor-pointer mt-2 text-sm font-semibold text-orange-600 hover:text-gray-900"
+                        onClick={() => {
+                          history("/forgot-password");
+                        }}
+                      >
+                        Forget password?
+                      </a>
                     </div>
+
                     <div className="flex mb-6 items-center">
                       <input type="checkbox" defaultValue="" id="" />
                       <label className="ml-2 text-md text-gray-800" htmlFor="">

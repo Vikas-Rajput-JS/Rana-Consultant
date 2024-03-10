@@ -17,14 +17,12 @@ function Form() {
   const [form, setform] = useState({});
   const ref = useRef(null);
   const history = useNavigate();
-  const User = useSelector((state) => state.user);
+  const User = useSelector((state) => state.user?.user);
   const dispatch = useDispatch();
-
+  console.log(User, "========================");
   useEffect(() => {
     ref.current.staticStart();
     ref.current.complete();
-
-
   }, []);
   const DestinationAddress = async (e) => {
     console.log(e);
@@ -60,12 +58,14 @@ function Form() {
     ApiClient.put("edit-profile", form).then((res) => {
       if (res.success) {
         toast.success(res?.message);
+        GetProfile();
       }
     });
     ref.current.complete();
   };
 
   const UploadImage = async (e) => {
+    ref.current.staticStart()
     console.log(e.target?.files[0]);
     let file = e.target.files[0];
     let formdata = new FormData();
@@ -80,6 +80,7 @@ function Form() {
     });
     let res = await Upload.json();
     console.log(res);
+    ref.current.complete()
     setform({ ...form, image: res?.data?.fullPath });
   };
 
@@ -106,9 +107,9 @@ function Form() {
                   <div className="flex flex-wrap justify-between -m-1.5">
                     <div className="w-full md:w-auto p-1.5">
                       <button
-                      onClick={()=>{
-                        history('/')
-                      }}
+                        onClick={() => {
+                          history("/");
+                        }}
                         className="flex flex-wrap justify-center w-full px-4 py-2 font-medium text-sm text-coolGray-500 hover:text-coolGray-600 border border-coolGray-200 hover:border-coolGray-300 bg-white rounded-md shadow-button"
                         fdprocessedid="ynizbc"
                       >
@@ -141,7 +142,11 @@ function Form() {
                         document.getElementById("ImageUploader").click();
                       }}
                       className="w-52 h-52 rounded-full"
-                      src={`${Environment.API_URL}${form?.image}`}
+                      src={
+                        form?.image
+                          ? `${Environment.API_URL}${form?.image}`
+                          : "/public/—Pngtree—vector users icon_4144740.png"
+                      }
                       alt=""
                     />
                   </div>
@@ -227,7 +232,6 @@ function Form() {
                           mobileNo: phone,
                           dialCode: country?.dialCode,
                         });
-                        console.log(form);
                       }}
                     />
                   </div>
@@ -281,6 +285,7 @@ function Form() {
                         id="ImageUploader"
                         className="absolute top-0 left-0 w-full h-full opacity-0"
                         type="file"
+                        accept=".jpg,.png,.jpeg"
                       />
                     </div>
                   </div>

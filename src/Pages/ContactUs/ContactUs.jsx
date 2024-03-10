@@ -3,8 +3,11 @@ import Navbar from '../../components/Navbar'
 import Footer from '../../components/Footer'
 import GooglePlaceAutoComplete from '../../components/GoogleAutoComplete'
 import addressModel from '../../Models/AddressModel';
+import { useSelector } from 'react-redux';
 
 function ContactUs() {
+  const user = useSelector((state)=>state.user)
+  console.log(user,'===========================================Contactus')
 
   return (
 <>

@@ -30,6 +30,10 @@ import Payment from "./Pages/PaymentForm/Payment";
 import Billing from "./Pages/PaymentForm/Billing";
 import Cookies from "./Pages/Cookies/Cookies";
 import ContactUs from "./Pages/ContactUs/ContactUs";
+import Profile from "./Pages/Profile/html";
+import ForgotPassword from "./Pages/ForgetPassword//index";
+import OTPVerify from "./Pages/ForgetPassword/OTP";
+import ResetPassword from "./Pages/ForgetPassword/ResetPassword";
 
 function Layout() {
   return (
@@ -58,9 +62,6 @@ function App() {
     });
   };
 
-  useEffect(() => {
-    // GetProfile();
-  }, []);
   return (
     <>
       <Toaster />
@@ -77,6 +78,10 @@ function App() {
         <Route path={"/contact-us"} element={<ContactUs />}></Route>
         <Route path={"/payment"} element={<Payment />}></Route>
         <Route path={"/billing"} element={<Billing />}></Route>
+        <Route path={"/profile"} element={<Profile />}></Route>
+        <Route path={"/forgot-password"} element={<ForgotPassword />}></Route>
+        <Route path={"/otp-verify"} element={<OTPVerify />}></Route>
+        <Route path={"/reset-password"} element={<ResetPassword />}></Route>
 
         <Route path={"/todo"} element={<ToDoList />}></Route>
         <Route path={"/carriers"} element={<Carriers />}></Route>

@@ -10,7 +10,7 @@ function Signup() {
   const Navigate = useNavigate();
   const [form, setform] = useState({});
   const ref = useRef(null);
-  const [eye, setEye] = useState("password");
+  const [eye, setEye] = useState(false);
   useEffect(() => {
     if (localStorage.getItem("token")) {
       Navigate("/");
@@ -220,7 +220,7 @@ function Signup() {
                       <div className="relative">
                         <input
                           className="w-full py-3 px-4 text-lg text-gray-900 placeholder-gray-400 border border-gray-200 focus:border-purple-500 focus:outline-purple rounded-lg"
-                          type="password"
+                          type={eye?"text":"password"}
                           value={form?.password}
                           onChange={(e) => {
                             setform({ ...form, password: e.target.value });
@@ -229,15 +229,19 @@ function Signup() {
                           fdprocessedid="1kvujq"
                           required
                         />
-                        <button
-                          className="absolute top-1/2 right-0 mr-3 transform -translate-y-1/2 inline-block hover:scale-110 transition duration-100"
-                          fdprocessedid="c3494"
-                        >
-                          <img
-                            src="https://shuffle.dev/saturn-assets/images/sign-up/icon-eye.svg"
-                            alt=""
-                          />
-                        </button>
+                         {eye? <img
+                          onClick={() => setEye(false)}
+                          className="absolute w-6 cursor-pointer top-1/2 right-0 mr-3 transform -translate-y-1/2 inline-block hover:scale-110 transition duration-100"
+                          fdprocessedid="txgt8n"
+                          src="/public/close-eye.png"
+                          alt=""
+                        />:   <img
+                        onClick={() => setEye(true)}
+                        className="absolute cursor-pointer top-1/2 right-0 mr-3 transform -translate-y-1/2 inline-block hover:scale-110 transition duration-100"
+                        fdprocessedid="txgt8n"
+                        src="https://shuffle.dev/saturn-assets/images/sign-up/icon-eye.svg"
+                        alt=""
+                      />}
                       </div>
                     </div>
                     <div className="flex mb-6 items-center">
