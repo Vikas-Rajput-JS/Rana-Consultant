@@ -35,7 +35,7 @@ function ResetPassword() {
     <>
       {/* <Navbar/> */}
       <div class="relative flex min-h-screen  flex-col justify-center overflow-hidden bg-gray-50 py-12 w-[100%]">
-        <LoadingBar shadow={true} height={4} color="#ff460c" ref={ref} />
+        <LoadingBar shadow={true} height={5} color="#ff460c" ref={ref} />
         <div class="relative bg-white px-6 pt-10 pb-9 shadow-xl mx-auto  max-w-[40%] dark:border-amber-300 flex  rounded-2xl w-[100%]">
           <div
             class="mx-auto flex w-[100%] max-w-md flex-col  

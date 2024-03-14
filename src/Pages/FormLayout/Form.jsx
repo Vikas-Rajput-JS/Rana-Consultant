@@ -89,7 +89,7 @@ function Form() {
   }, []);
   return (
     <section className="bg-coolGray-50 py-4">
-      <LoadingBar shadow={true} height={3} color="#ff460c" ref={ref} />
+      <LoadingBar shadow={true} height={5} color="#ff460c" ref={ref} />
       <div className="container px-4 mx-auto">
         <form onSubmit={HandleSubmit}>
           <div className="p-6 h-full border border-coolGray-100 overflow-hidden bg-white rounded-md shadow-dashboard">

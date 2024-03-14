@@ -41,7 +41,7 @@ function Login() {
   // toast.success('hello')
   return (
     <>
-      <LoadingBar shadow={true} height={3} color="#ff460c" ref={ref} />
+      <LoadingBar shadow={true} height={5} color="#ff460c" ref={ref} />
 
       <section className="relative py-20 lg:py-10 overflow-hidden mt-[10vh]">
         <div className="container px-4 mx-auto">

@@ -38,7 +38,7 @@ function Signup() {
 
   return (
     <>
-      <LoadingBar shadow={true} height={3} color="#ff460c" ref={ref} />
+      <LoadingBar shadow={true} height={5} color="#ff460c" ref={ref} />
       <section className="relative py-20 lg:py-10 overflow-hidden">
         <div className="container px-4 mx-auto">
           <div className="max-w-7xl mx-auto">

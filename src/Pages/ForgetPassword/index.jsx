@@ -25,7 +25,7 @@ function ForgotPassword() {
     <>
       {/* <Navbar/> */}
       <div class="relative flex min-h-screen w-full flex-col justify-center overflow-hidden bg-gray-50 py-12 w-[100%]">
-        <LoadingBar shadow={true} height={4} color="#ff460c" ref={ref} />
+        <LoadingBar shadow={true} height={5} color="#ff460c" ref={ref} />
         <div class="relative bg-white px-6 pt-10 pb-9 shadow-xl mx-auto w-full max-w-[40%] flex justify-center items-center rounded-2xl w-[100%]">
           <div
             class="mx-auto flex w-[100%] max-w-md flex-col space-y-16 flex

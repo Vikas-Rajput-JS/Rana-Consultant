@@ -34,6 +34,7 @@ import Profile from "./Pages/Profile/html";
 import ForgotPassword from "./Pages/ForgetPassword//index";
 import OTPVerify from "./Pages/ForgetPassword/OTP";
 import ResetPassword from "./Pages/ForgetPassword/ResetPassword";
+import ViewPage from "./Pages/Services/ViewPage";
 
 function Layout() {
   return (
@@ -72,6 +73,7 @@ function App() {
         <Route path={"*"} element={<NotFound />}></Route>
         <Route path={"/about-us"} element={<Aboutus />}></Route>
         <Route path={"/services"} element={<Services />}></Route>
+        <Route path={"/course/:id"} element={<ViewPage />}></Route>
         <Route path={"/review"} element={<Review />}></Route>
         <Route path={"/follow-us"} element={<FollowUs />}></Route>
         <Route path={"/edit-profile"} element={<Form />}></Route>

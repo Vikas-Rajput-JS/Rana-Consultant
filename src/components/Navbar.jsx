@@ -42,22 +42,15 @@ const Navbar = () => {
   };
   return (
     <>
-      <LoadingBar shadow={true} height={3} color="#ff460c" ref={ref} />
+      <LoadingBar shadow={true}  loaderSpeed={1500} height={5} color="#ff460c" ref={ref} />
 
       <section>
         <nav className="relative py-6 bg-transparent z-50">
-        <a className="inline-block text-lg font-bold absolute top-0" href="#">
-                <img
-                  className="w-44"
-                  src="/public/logo.svg"
-                  alt=""
-                  width="auto"
-                />
-              </a>
+          <a className="inline-block text-lg font-bold absolute top-0" href="#">
+            <img className="w-44" src="/public/logo.svg" alt="" width="auto" />
+          </a>
           <div className="container px-4 mx-auto">
-            
             <div className="flex items-center">
-             
               <div className="lg:hidden ml-auto">
                 <button className="navbar-burger flex w-12 h-12 items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-md transition duration-200">
                   <svg
