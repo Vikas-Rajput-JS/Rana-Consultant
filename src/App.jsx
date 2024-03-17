@@ -78,7 +78,7 @@ function App() {
         <Route path={"/follow-us"} element={<FollowUs />}></Route>
         <Route path={"/edit-profile"} element={<Form />}></Route>
         <Route path={"/contact-us"} element={<ContactUs />}></Route>
-        <Route path={"/payment"} element={<Payment />}></Route>
+        <Route path={"/payment/:id"} element={<Payment />}></Route>
         <Route path={"/billing"} element={<Billing />}></Route>
         <Route path={"/profile"} element={<Profile />}></Route>
         <Route path={"/forgot-password"} element={<ForgotPassword />}></Route>

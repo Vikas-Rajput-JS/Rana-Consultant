@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Navbar from "../../components/Navbar";
 import ApiClient from "../../Apis/ApiClient";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import moment from "moment";
 import Footer from "../../components/Footer";
 import GooglePayButton from "@google-pay/button-react";
@@ -11,6 +11,7 @@ import LoadingBar from "react-top-loading-bar";
 function ViewPage() {
   const [details, setDetails] = useState({});
   const { id } = useParams();
+  const history = useNavigate();
   const ref = useRef();
   const getDetials = () => {
     ApiClient.get("course", { id: id }).then((res) => {
@@ -63,17 +64,18 @@ function ViewPage() {
                     <span class="block text-5xl font-bold text-gray-900 mb-5">
                       Rs {details?.registrationFees}
                     </span>
-                    {/* <a
+                    <a
                       onClick={() => {
-                        document.getElementById("GooglePayButton").click();
+                        // document.getElementById("GooglePayButton").click();
+                        history("/payment/" + details?.id);
                       }}
                       class="relative group inline-block py-4 px-10 text-center text-orange-50 bg-orange-900 font-semibold rounded-full overflow-hidden transition duration-200"
                     >
                       <div class="absolute top-0 right-full w-full h-full bg-gray-900 transform group-hover:translate-x-full group-hover:scale-102 transition duration-500"></div>
                       <span class="relative">Get Started</span>
-                    </a> */}
+                    </a>
                     <GooglePayButton
-                      className="none"
+                      className=""
                       environment="TEST"
                       paymentRequest={{
                         apiVersion: 2,
