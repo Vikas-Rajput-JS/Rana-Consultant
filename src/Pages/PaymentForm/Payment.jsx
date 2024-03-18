@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Navbar from "../../components/Navbar";
 import Environment from "../../environment/environment";
 import toast from "react-hot-toast";
@@ -7,13 +7,28 @@ import { useSelector } from "react-redux";
 import addressModel from "../../Models/AddressModel";
 import GooglePlaceAutoComplete from "../../components/GoogleAutoComplete";
 import { useParams } from "react-router-dom";
+import LoadingBar from "react-top-loading-bar";
 
 function Payment() {
   const [form, setform] = useState({ expiryMonth: "", expiryYear: "" });
   const [ShowDocumet, setShowdocument] = useState(false);
   const user = useSelector((state) => state?.user?.user);
   const { id } = useParams();
+  const [data, setdata] = useState({});
   console.log(user);
+  const ref = useRef();
+
+  const GetCourse = () => {
+    ApiClient.get("course", { id }).then((res) => {
+      if (res.success) {
+        setdata(res.data);
+      }
+    });
+  };
+  useEffect(() => {
+    GetCourse();
+  }, []);
+
   const DestinationAddress = async (e) => {
     console.log(e);
     let address = {};
@@ -33,12 +48,13 @@ function Payment() {
     });
   };
   const Handle12DMC = async (e) => {
+    ref.current.staticStart();
     let file = e.target.files[0];
     let Fileform = new FormData();
 
     Fileform.append("file", file);
 
-    let Upload = await fetch(`${Environment.LocalURL}common/imageUpload`, {
+    let Upload = await fetch(`${Environment.API_URL}common/imageUpload`, {
       method: "post",
       // headers:{"Content-Type":"multipart/form-data; boundary=--------------------------"},
       body: Fileform,
@@ -47,14 +63,16 @@ function Payment() {
     if (res.success) {
       setform({ ...form, dmc12th: res?.data?.fullPath });
     }
+    ref.current.complete();
   };
   const Handle10DMC = async (e) => {
+    ref.current.staticStart();
     let file = e.target.files[0];
     let Fileform = new FormData();
 
     Fileform.append("file", file);
 
-    let Upload = await fetch(`${Environment.LocalURL}common/imageUpload`, {
+    let Upload = await fetch(`${Environment.API_URL}common/imageUpload`, {
       method: "post",
       // headers:{"Content-Type":"multipart/form-data; boundary=--------------------------"},
       body: Fileform,
@@ -63,14 +81,16 @@ function Payment() {
     if (res.success) {
       setform({ ...form, dmc10th: res?.data?.fullPath });
     }
+    ref.current.complete();
   };
   const HandleADHAAR = async (e) => {
     let file = e.target.files[0];
+    ref.current.staticStart();
     let Fileform = new FormData();
 
     Fileform.append("file", file);
 
-    let Upload = await fetch(`${Environment.LocalURL}common/imageUpload`, {
+    let Upload = await fetch(`${Environment.API_URL}common/imageUpload`, {
       method: "post",
       // headers:{"Content-Type":"multipart/form-data; boundary=--------------------------"},
       body: Fileform,
@@ -79,20 +99,26 @@ function Payment() {
     if (res.success) {
       setform({ ...form, adhaar: res?.data?.fullPath });
     }
+    ref.current.complete();
   };
 
   const HandleSubmit = (e) => {
     e.preventDefault();
+    ref.current.staticStart();
 
     ApiClient.put("edit-profile", form).then((res) => {
       if (res.success) {
         setShowdocument(false);
         toast.success("Documents updated successfuly");
+        setform({});
       }
     });
+    ref.current.complete();
   };
 
   const HandleSubmitPayment = (e) => {
+    ref.current.staticStart();
+
     e.preventDefault();
     let value = {
       ...form,
@@ -104,14 +130,37 @@ function Payment() {
     ApiClient.post("payment", value).then((res) => {
       if (res.success) {
         toast.success(res.message);
-      
+        ref.current.complete();
+        ref.current.staticStart();
+
+        ApiClient.post("apply-course", {
+          user_id: user?.id,
+          course_id: id,
+          courseName: data?.name,
+          userName: user?.fullName,
+          price: data?.price,
+        }).then((res) => {
+          if (res.success) {
+            toast.success(res.message);
+          }
+        });
+        ref.current.complete();
       }
     });
+    ref.current.complete();
   };
 
   return (
     <>
       <Navbar />
+      <LoadingBar
+        shadow={true}
+        loaderSpeed={1500}
+        height={5}
+        color="#ff460c"
+        ref={ref}
+      />
+
       <section className="bg-coolGray-50 py-4">
         <div className="container px-4 mx-auto">
           <div className="shadow-dashboard">
@@ -278,7 +327,6 @@ function Payment() {
                       <div className="w-full md:flex-1 p-3">
                         <input
                           value={user?.email}
-
                           disabled
                           className="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input"
                           type="text"
@@ -384,7 +432,7 @@ function Payment() {
                   <div className="flex flex-wrap justify-end -m-1.5">
                     <div className="w-full md:w-auto p-1.5">
                       <button
-                      type="reset"
+                        type="reset"
                         className="flex flex-wrap justify-center w-full px-4 py-2 font-medium text-sm text-coolGray-500 hover:text-coolGray-600 border border-coolGray-200 hover:border-coolGray-300 bg-white rounded-md shadow-button"
                         fdprocessedid="4o9y9"
                       >
@@ -834,7 +882,6 @@ function Payment() {
                 </a>
                 <div class="w-full sm:w-auto mt-6 sm:mt-0 -mb-2">
                   <a
-                  
                     class="inline-block w-full cursor-pointer sm:w-auto py-3 px-5 mb-2 mr-6 text-center font-semibold leading-6 text-gray-200 bg-gray-600 hover:bg-gray-700 rounded-lg transition duration-200"
                     onClick={() => {
                       setShowdocument(false);
